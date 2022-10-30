@@ -10,8 +10,12 @@ namespace Ecommerce.Models
         [ScaffoldColumn(false)]
         public int BAIR_PK_ID { get; set; }
         [Required]
+        [StringLength(50)]
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
         [Required]
+        [StringLength(30)]
+        [Display(Name = "Apelido")]
         public string Apelido { get; set; }
         
         [ScaffoldColumn(false)]

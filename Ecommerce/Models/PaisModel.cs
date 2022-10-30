@@ -10,9 +10,12 @@ namespace Ecommerce.Models
         [ScaffoldColumn(false)]
         public int PAIS_PK_ID { get; set; }
         [Required]
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
         [Required]
+        [Display(Name = "Apelido")]
         public string Apelido { get; set; }
+        [Display(Name = "Imagem")]
         public byte[] Imagem { get; set; }
         
         [ScaffoldColumn(false)]

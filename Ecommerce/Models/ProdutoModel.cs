@@ -6,6 +6,12 @@ namespace Ecommerce.Models
 {
     public class ProdutoModel
     {
+        public enum StatusCadastro
+        {
+            Ativo,
+            Inativo
+        }
+
         [Key]
         [ScaffoldColumn(false)]
         public int PROD_PK_ID { get; set; }
@@ -30,7 +36,7 @@ namespace Ecommerce.Models
         [Display(Name = "Quantidade em Estoque")]
         public double Quantidade_Estoque { get; set; }
         [Display(Name = "Status")]
-        public byte Status { get; set; }
+        public StatusCadastro Status { get; set; }
         [ScaffoldColumn(false)]
         public bool Excluido { get; set; }
     }

@@ -7,17 +7,25 @@ namespace Ecommerce.Models
 {
     public class ItemModel
     {
+        public enum StatusCadastro
+        {
+            Ativo,
+            Inativo
+        }
+
         [Key]
         [ScaffoldColumn(false)]
         public int ITEM_PK_ID { get; set; }
         [ForeignKey("Produto")]
+        [Display(Name = "Produto")]
         public int ITEM_FK_PROD { get; set; }
         public ProdutoModel Produto { get; set; }
         [ForeignKey("Pedido")]
+        [Display(Name = "Pedido")]
         public int ITEM_FK_PEDI { get; set; }
         public PedidoModel Pedido { get; set; }
-
-        public byte Status { get; set; }
+        [Display(Name = "Status")]
+        public StatusCadastro Status { get; set; }
         [ScaffoldColumn(false)]
         public bool Excluido { get; set; }
     }
