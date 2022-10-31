@@ -25,29 +25,29 @@ namespace Ecommerce.Models
         [Required]
         [StringLength(100)]
         [Display(Name = "Nome Completo")]
-        public string Nome { get; set; }
+        public string PESS_NOME { get; set; }
         [Display(Name = "Imagem")]
         public byte[] Imagem { get; set; }
         [Display(Name = "Pessoa Tipo")]
-        public PessoaTipo Tipo { get; set; }
+        public PessoaTipo PESS_TIPO { get; set; }
         [DataType(DataType.EmailAddress)]
         [StringLength(100)]
         [Display(Name = "E-mail")]
-        public string Email { get; set; }
+        public string PESS_EMAIL { get; set; }
         [Display(Name = "CPF")]
         [StringLength(14)]
-        public string CPF { get; set; }
+        public string PESS_CPF { get; set; }
         [Display(Name = "CNPJ")]
         [StringLength(18)]
-        public string CNPJ { get; set; }
+        public string PESS_CNPJ { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de Cadastro")]
-        public DateTime Data_Cadastro{ get; set; }
+        public DateTime PESS_DATA_CADASTRO{ get; set; }
         [Display(Name = "Status")]
-        public StatusCadastro Status { get; set; }
+        public StatusCadastro PESS_STATUS { get; set; }
         [ScaffoldColumn(false)]
-        public bool Excluido { get; set; }
+        public bool PESS_EXCLUIDO { get; set; }
 
         [Display(Name = "Lista de Endereços")]
         public ICollection<EnderecoModel> Enderecos { get; set; }

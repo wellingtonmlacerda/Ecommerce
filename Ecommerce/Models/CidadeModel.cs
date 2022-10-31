@@ -12,13 +12,13 @@ namespace Ecommerce.Models
         [Required]
         [StringLength(50)]
         [Display(Name = "Descrição")]
-        public string Descricao { get; set; }
+        public string CIDA_DESCRICAO { get; set; }
         [Required]
         [StringLength(30)]
         [Display(Name = "Apelido")]
-        public string Apelido { get; set; }
+        public string CIDA_APELIDO { get; set; }
         
         [ScaffoldColumn(false)]
-        public bool Excluido { get; set; }
+        public bool CIDA_EXCLUIDO { get; set; }
     }
 }

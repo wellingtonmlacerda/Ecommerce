@@ -14,19 +14,19 @@ namespace Ecommerce.Models
         [Required]
         [StringLength(8)]
         [Display(Name = "CEP")]
-        public string CEP { get; set; }
+        public string ENDE_CEP { get; set; }
         [Required]
         [StringLength(50)]
         [Display(Name = "Logradouro")]
-        public string Logradouro { get; set; }
+        public string ENDE_LOGRADOURO { get; set; }
         [Required]
         [StringLength(10)]
         [Display(Name = "Número")]
-        public int Numero { get; set; }
+        public int ENDE_NUMERO { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de Cadastro")]
-        public DateTime Data_Cadastro{ get; set; }
+        public DateTime ENDE_DATA_CADASTRo{ get; set; }
         [Required]
         [ForeignKey("Pais")]
         [Display(Name = "País")]
@@ -55,7 +55,7 @@ namespace Ecommerce.Models
         [Display(Name = "Endereço Principal?")]
         public bool Principal { get; set; }
         [ScaffoldColumn(false)]
-        public bool Excluido { get; set; }
+        public bool ENDE_EXCLUIDO { get; set; }
 
         [Display(Name = "Lista de Cidades")]
         public ICollection<CidadeModel> Cidades { get; set; }

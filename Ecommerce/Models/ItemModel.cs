@@ -25,8 +25,8 @@ namespace Ecommerce.Models
         public int ITEM_FK_PEDI { get; set; }
         public PedidoModel Pedido { get; set; }
         [Display(Name = "Status")]
-        public StatusCadastro Status { get; set; }
+        public StatusCadastro ITEM_STATUS { get; set; }
         [ScaffoldColumn(false)]
-        public bool Excluido { get; set; }
+        public bool ITEM_EXCLUIDO { get; set; }
     }
 }

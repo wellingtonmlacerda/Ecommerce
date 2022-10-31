@@ -22,22 +22,22 @@ namespace Ecommerce.Models
         public int PEDI_FK_PESS { get; set; }
         [Required]
         [Display(Name = "Logradouro")]
-        public string Logradouro { get; set; }
+        public string PEDI_LOGRADOURO { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de Cadastro")]
-        public int Data_Cadastro { get; set; }
+        public int PEDI_DATA_CADASTRO { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de Pagamento")]
-        public DateTime? Data_Pagamento{ get; set; }
+        public DateTime? PEDI_DATA_PAGAMENTO{ get; set; }
         [Display(Name = "Valor Total")]
-        public double Valor_Total { get; set; }
+        public double PEDI_VALOR_TOTAL { get; set; }
         public PessoaModel Pessoa { get; set; }
         [Display(Name = "Status")]
-        public StatusCadastro status { get; set; }
+        public StatusCadastro PEDI_STATUS { get; set; }
         [ScaffoldColumn(false)]
-        public bool Excluido { get; set; }
+        public bool PEDI_EXCLUIDO { get; set; }
 
         [Display(Name = "Lista de Itens")]
         public ICollection<ItemModel> Itens { get; set; }

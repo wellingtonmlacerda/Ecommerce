@@ -11,14 +11,14 @@ namespace Ecommerce.Models
         public int PAIS_PK_ID { get; set; }
         [Required]
         [Display(Name = "Descrição")]
-        public string Descricao { get; set; }
+        public string PAIS_DESCRICAO { get; set; }
         [Required]
         [Display(Name = "Apelido")]
-        public string Apelido { get; set; }
+        public string PAIS_APELIDO { get; set; }
         [Display(Name = "Imagem")]
-        public byte[] Imagem { get; set; }
+        public byte[] PAIS_IMAGEM { get; set; }
         
         [ScaffoldColumn(false)]
-        public bool Excluido { get; set; }
+        public bool PAIS_EXCLUIDO { get; set; }
     }
 }

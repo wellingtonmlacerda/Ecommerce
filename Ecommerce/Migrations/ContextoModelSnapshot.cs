@@ -26,21 +26,21 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Apelido")
+                    b.Property<string>("BAIR_APELIDO")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Descricao")
+                    b.Property<string>("BAIR_DESCRICAO")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<bool>("BAIR_EXCLUIDO")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("EnderecoModelENDE_PK_ID")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Excluido")
-                        .HasColumnType("bit");
 
                     b.HasKey("BAIR_PK_ID");
 
@@ -56,27 +56,66 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Apelido")
+                    b.Property<string>("CIDA_APELIDO")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Descricao")
+                    b.Property<string>("CIDA_DESCRICAO")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<bool>("CIDA_EXCLUIDO")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("EnderecoModelENDE_PK_ID")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Excluido")
-                        .HasColumnType("bit");
 
                     b.HasKey("CIDA_PK_ID");
 
                     b.HasIndex("EnderecoModelENDE_PK_ID");
 
                     b.ToTable("Cidades");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.DiretivaModel", b =>
+                {
+                    b.Property<int>("DIRE_PK_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("DIRE_CODIGO")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("DIRE_DATA_CADASTRO")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DIRE_DESCRICAO")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("DIRE_EXCLUIDO")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DIRE_FK_GRUS")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DIRE_NOME")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("DIRE_PK_ID");
+
+                    b.HasIndex("DIRE_FK_GRUS");
+
+                    b.ToTable("Diretivas");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.EnderecoModel", b =>
@@ -86,13 +125,16 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CEP")
+                    b.Property<string>("ENDE_CEP")
                         .IsRequired()
                         .HasMaxLength(8)
                         .HasColumnType("nvarchar(8)");
 
-                    b.Property<DateTime>("Data_Cadastro")
+                    b.Property<DateTime>("ENDE_DATA_CADASTRo")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("ENDE_EXCLUIDO")
+                        .HasColumnType("bit");
 
                     b.Property<int>("ENDE_FK_BAIR")
                         .HasColumnType("int");
@@ -109,15 +151,12 @@ namespace Ecommerce.Migrations
                     b.Property<int>("ENDE_FK_PESS")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Excluido")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Logradouro")
+                    b.Property<string>("ENDE_LOGRADOURO")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Numero")
+                    b.Property<int>("ENDE_NUMERO")
                         .HasMaxLength(10)
                         .HasColumnType("int");
 
@@ -146,32 +185,73 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Apelido")
+                    b.Property<string>("ESTA_APELIDO")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Descricao")
+                    b.Property<string>("ESTA_DESCRICAO")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("EnderecoModelENDE_PK_ID")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Excluido")
+                    b.Property<bool>("ESTA_EXCLUIDO")
                         .HasColumnType("bit");
 
-                    b.Property<string>("UF")
+                    b.Property<string>("ESTA_UF")
                         .IsRequired()
                         .HasMaxLength(2)
                         .HasColumnType("nvarchar(2)");
+
+                    b.Property<int?>("EnderecoModelENDE_PK_ID")
+                        .HasColumnType("int");
 
                     b.HasKey("ESTA_PK_ID");
 
                     b.HasIndex("EnderecoModelENDE_PK_ID");
 
                     b.ToTable("Estados");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.Grupo_UsuarioModel", b =>
+                {
+                    b.Property<int>("GRUS_PK_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DiretivaModelDIRE_PK_ID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GRUS_DATA_CADASTRO")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GRUS_DESCRICAO")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("GRUS_EXCLUIDO")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("GRUS_NOME")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("GRUS_STATUS")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UsuarioModelUSUA_PK_FK_PESS")
+                        .HasColumnType("int");
+
+                    b.HasKey("GRUS_PK_ID");
+
+                    b.HasIndex("DiretivaModelDIRE_PK_ID");
+
+                    b.HasIndex("UsuarioModelUSUA_PK_FK_PESS");
+
+                    b.ToTable("grupo_Usuarios");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.ItemModel", b =>
@@ -181,7 +261,7 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Excluido")
+                    b.Property<bool>("ITEM_EXCLUIDO")
                         .HasColumnType("bit");
 
                     b.Property<int>("ITEM_FK_PEDI")
@@ -190,7 +270,7 @@ namespace Ecommerce.Migrations
                     b.Property<int>("ITEM_FK_PROD")
                         .HasColumnType("int");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("ITEM_STATUS")
                         .HasColumnType("int");
 
                     b.HasKey("ITEM_PK_ID");
@@ -209,21 +289,21 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Apelido")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("EnderecoModelENDE_PK_ID")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Excluido")
+                    b.Property<string>("PAIS_APELIDO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PAIS_DESCRICAO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PAIS_EXCLUIDO")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Imagem")
+                    b.Property<byte[]>("PAIS_IMAGEM")
                         .HasColumnType("varbinary(max)");
 
                     b.HasKey("PAIS_PK_ID");
@@ -240,27 +320,27 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Data_Cadastro")
+                    b.Property<int>("PEDI_DATA_CADASTRO")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("Data_Pagamento")
+                    b.Property<DateTime?>("PEDI_DATA_PAGAMENTO")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("Excluido")
+                    b.Property<bool>("PEDI_EXCLUIDO")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Logradouro")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PEDI_FK_PESS")
                         .HasColumnType("int");
 
-                    b.Property<double>("Valor_Total")
-                        .HasColumnType("float");
+                    b.Property<string>("PEDI_LOGRADOURO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("status")
+                    b.Property<int>("PEDI_STATUS")
                         .HasColumnType("int");
+
+                    b.Property<double>("PEDI_VALOR_TOTAL")
+                        .HasColumnType("float");
 
                     b.HasKey("PEDI_PK_ID");
 
@@ -276,39 +356,44 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CNPJ")
-                        .HasMaxLength(18)
-                        .HasColumnType("nvarchar(18)");
-
-                    b.Property<string>("CPF")
-                        .HasMaxLength(14)
-                        .HasColumnType("nvarchar(14)");
-
-                    b.Property<DateTime>("Data_Cadastro")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<bool>("Excluido")
-                        .HasColumnType("bit");
-
                     b.Property<byte[]>("Imagem")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("PESS_CNPJ")
+                        .HasMaxLength(18)
+                        .HasColumnType("nvarchar(18)");
+
+                    b.Property<string>("PESS_CPF")
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
+
+                    b.Property<DateTime>("PESS_DATA_CADASTRO")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PESS_EMAIL")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("PESS_EXCLUIDO")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PESS_NOME")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("PESS_STATUS")
                         .HasColumnType("int");
 
-                    b.Property<int>("Tipo")
+                    b.Property<int>("PESS_TIPO")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UsuarioModelUSUA_PK_FK_PESS")
                         .HasColumnType("int");
 
                     b.HasKey("PESS_PK_ID");
+
+                    b.HasIndex("UsuarioModelUSUA_PK_FK_PESS");
 
                     b.ToTable("Pessoas");
                 });
@@ -320,33 +405,33 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Data_Cadastro")
+                    b.Property<DateTime>("PROD_DATA_CADASTRO")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Descricao")
+                    b.Property<string>("PROD_DESCRICAO")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<bool>("Excluido")
+                    b.Property<bool>("PROD_EXCLUIDO")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Imagem")
+                    b.Property<byte[]>("PROD_IMAGEM")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<double>("Quantidade_Estoque")
+                    b.Property<double>("PROD_QUANTIDADE_ESTOQUE")
                         .HasColumnType("float");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("PROD_STATUS")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Validade")
+                    b.Property<DateTime>("PROD_VALIDADE")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("Valor")
+                    b.Property<double>("PROD_VALOR")
                         .HasColumnType("float");
 
-                    b.Property<string>("Volume")
+                    b.Property<string>("PROD_VOLUME")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PROD_PK_ID");
@@ -361,28 +446,28 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DD")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DDI")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Data_Cadastro")
+                    b.Property<DateTime>("TELE_DATA_CADASTRO")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("Excluido")
+                    b.Property<int>("TELE_DD")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TELE_DDI")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("TELE_EXCLUIDO")
                         .HasColumnType("bit");
-
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Principal")
-                        .HasColumnType("int");
 
                     b.Property<int>("TELE_FK_PESS")
                         .HasColumnType("int");
 
-                    b.Property<byte>("Tipo")
+                    b.Property<int>("TELE_NUMERO")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TELE_PRINCIPAL")
+                        .HasColumnType("int");
+
+                    b.Property<byte>("TELE_TIPO")
                         .HasColumnType("tinyint");
 
                     b.HasKey("TELE_PK_ID");
@@ -390,6 +475,40 @@ namespace Ecommerce.Migrations
                     b.HasIndex("TELE_FK_PESS");
 
                     b.ToTable("Telefones");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.UsuarioModel", b =>
+                {
+                    b.Property<int>("USUA_PK_FK_PESS")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("USUA_DATA_CADASTRO")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("USUA_EXCLUIDO")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("USUA_FK_GRUS")
+                        .HasColumnType("int");
+
+                    b.Property<string>("USUA_SENHA")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("USUA_STATUS")
+                        .HasColumnType("int");
+
+                    b.Property<string>("USUA_USUARIO")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("USUA_PK_FK_PESS");
+
+                    b.HasIndex("USUA_FK_GRUS");
+
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.BairroModel", b =>
@@ -404,6 +523,17 @@ namespace Ecommerce.Migrations
                     b.HasOne("Ecommerce.Models.EnderecoModel", null)
                         .WithMany("Cidades")
                         .HasForeignKey("EnderecoModelENDE_PK_ID");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.DiretivaModel", b =>
+                {
+                    b.HasOne("Ecommerce.Models.Grupo_UsuarioModel", "Grupo_Usuario")
+                        .WithMany()
+                        .HasForeignKey("DIRE_FK_GRUS")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Grupo_Usuario");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.EnderecoModel", b =>
@@ -456,6 +586,17 @@ namespace Ecommerce.Migrations
                         .HasForeignKey("EnderecoModelENDE_PK_ID");
                 });
 
+            modelBuilder.Entity("Ecommerce.Models.Grupo_UsuarioModel", b =>
+                {
+                    b.HasOne("Ecommerce.Models.DiretivaModel", null)
+                        .WithMany("Grupo_Usuarios")
+                        .HasForeignKey("DiretivaModelDIRE_PK_ID");
+
+                    b.HasOne("Ecommerce.Models.UsuarioModel", null)
+                        .WithMany("Grupo_Usuarios")
+                        .HasForeignKey("UsuarioModelUSUA_PK_FK_PESS");
+                });
+
             modelBuilder.Entity("Ecommerce.Models.ItemModel", b =>
                 {
                     b.HasOne("Ecommerce.Models.PedidoModel", "Pedido")
@@ -493,6 +634,13 @@ namespace Ecommerce.Migrations
                     b.Navigation("Pessoa");
                 });
 
+            modelBuilder.Entity("Ecommerce.Models.PessoaModel", b =>
+                {
+                    b.HasOne("Ecommerce.Models.UsuarioModel", null)
+                        .WithMany("Pessoas")
+                        .HasForeignKey("UsuarioModelUSUA_PK_FK_PESS");
+                });
+
             modelBuilder.Entity("Ecommerce.Models.TelefoneModel", b =>
                 {
                     b.HasOne("Ecommerce.Models.PessoaModel", "Pessoa")
@@ -502,6 +650,30 @@ namespace Ecommerce.Migrations
                         .IsRequired();
 
                     b.Navigation("Pessoa");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.UsuarioModel", b =>
+                {
+                    b.HasOne("Ecommerce.Models.Grupo_UsuarioModel", "Grupo_Usuario")
+                        .WithMany()
+                        .HasForeignKey("USUA_FK_GRUS")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Ecommerce.Models.PessoaModel", "Pessoa")
+                        .WithMany()
+                        .HasForeignKey("USUA_PK_FK_PESS")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Grupo_Usuario");
+
+                    b.Navigation("Pessoa");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.DiretivaModel", b =>
+                {
+                    b.Navigation("Grupo_Usuarios");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.EnderecoModel", b =>
@@ -527,6 +699,13 @@ namespace Ecommerce.Migrations
                     b.Navigation("Pedidos");
 
                     b.Navigation("Telefones");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.UsuarioModel", b =>
+                {
+                    b.Navigation("Grupo_Usuarios");
+
+                    b.Navigation("Pessoas");
                 });
 #pragma warning restore 612, 618
         }

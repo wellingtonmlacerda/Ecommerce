@@ -21,5 +21,8 @@ namespace Ecommerce.Data
         public DbSet<PedidoModel> Pedidos { get; set; }
         public DbSet<ProdutoModel> Produtos { get; set; }
         public DbSet<TelefoneModel> Telefones { get; set; }
+        public DbSet<UsuarioModel> Usuarios { get; set; }
+        public DbSet<Grupo_UsuarioModel> grupo_Usuarios { get; set; }
+        public DbSet<DiretivaModel> Diretivas { get; set; }
     }
 }
