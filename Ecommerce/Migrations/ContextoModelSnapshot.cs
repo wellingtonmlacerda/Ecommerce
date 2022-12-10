@@ -46,7 +46,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("EnderecoModelENDE_PK_ID");
 
-                    b.ToTable("Bairros");
+                    b.ToTable("BAIRROS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.CidadeModel", b =>
@@ -76,7 +76,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("EnderecoModelENDE_PK_ID");
 
-                    b.ToTable("Cidades");
+                    b.ToTable("CIDADES");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.DiretivaModel", b =>
@@ -115,7 +115,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("DIRE_FK_GRUS");
 
-                    b.ToTable("Diretivas");
+                    b.ToTable("DIRETIVAS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.EnderecoModel", b =>
@@ -175,7 +175,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("ENDE_FK_PESS");
 
-                    b.ToTable("Enderecos");
+                    b.ToTable("ENDERECOS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.EstadoModel", b =>
@@ -210,7 +210,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("EnderecoModelENDE_PK_ID");
 
-                    b.ToTable("Estados");
+                    b.ToTable("ESTADOS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.Grupo_UsuarioModel", b =>
@@ -251,7 +251,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("UsuarioModelUSUA_PK_FK_PESS");
 
-                    b.ToTable("grupo_Usuarios");
+                    b.ToTable("GRUPO_USUARIOS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.ItemModel", b =>
@@ -279,7 +279,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("ITEM_FK_PROD");
 
-                    b.ToTable("Itens");
+                    b.ToTable("ITENS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.PaisModel", b =>
@@ -310,7 +310,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("EnderecoModelENDE_PK_ID");
 
-                    b.ToTable("Paises");
+                    b.ToTable("PAISES");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.PedidoModel", b =>
@@ -346,7 +346,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("PEDI_FK_PESS");
 
-                    b.ToTable("Pedidos");
+                    b.ToTable("PEDIDOS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.PessoaModel", b =>
@@ -355,9 +355,6 @@ namespace Ecommerce.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<byte[]>("Imagem")
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("PESS_CNPJ")
                         .HasMaxLength(18)
@@ -377,6 +374,9 @@ namespace Ecommerce.Migrations
                     b.Property<bool>("PESS_EXCLUIDO")
                         .HasColumnType("bit");
 
+                    b.Property<byte[]>("PESS_IMAGEM")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("PESS_NOME")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -395,7 +395,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("UsuarioModelUSUA_PK_FK_PESS");
 
-                    b.ToTable("Pessoas");
+                    b.ToTable("PESSOAS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.ProdutoModel", b =>
@@ -405,9 +405,6 @@ namespace Ecommerce.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("PROD_DATA_CADASTRO")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("PROD_DESCRICAO")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -416,8 +413,8 @@ namespace Ecommerce.Migrations
                     b.Property<bool>("PROD_EXCLUIDO")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("PROD_IMAGEM")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<int>("PROD_FK_CATE")
+                        .HasColumnType("int");
 
                     b.Property<double>("PROD_QUANTIDADE_ESTOQUE")
                         .HasColumnType("float");
@@ -436,7 +433,79 @@ namespace Ecommerce.Migrations
 
                     b.HasKey("PROD_PK_ID");
 
-                    b.ToTable("Produtos");
+                    b.HasIndex("PROD_FK_CATE");
+
+                    b.ToTable("PRODUTOS");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.Produto_CategoriaModel", b =>
+                {
+                    b.Property<int>("PRCA_PK_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("PRCA_DATA_CADASTRO")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PRCA_DESCRICAO")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("PRCA_EXCLUIDO")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PRCA_STATUS")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProdutoModelPROD_PK_ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("PRCA_PK_ID");
+
+                    b.HasIndex("ProdutoModelPROD_PK_ID");
+
+                    b.ToTable("PRODUTO_CATEGORIAS");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.Produto_ImagemModel", b =>
+                {
+                    b.Property<int>("PRIM_PK_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("PRIM_DATA_CADASTRO")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PRIM_DESCRICAO")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("PRIM_EXCLUIDO")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PRIM_FK_PROD")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("PRIM_IMAGEM")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<int>("PRIM_ORDEM")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("PRIM_PRINCIPAL")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PRIM_STATUS")
+                        .HasColumnType("int");
+
+                    b.HasKey("PRIM_PK_ID");
+
+                    b.HasIndex("PRIM_FK_PROD");
+
+                    b.ToTable("PRODUTO_IMAGEMS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.TelefoneModel", b =>
@@ -474,7 +543,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("TELE_FK_PESS");
 
-                    b.ToTable("Telefones");
+                    b.ToTable("TELEFONES");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.UsuarioModel", b =>
@@ -508,7 +577,7 @@ namespace Ecommerce.Migrations
 
                     b.HasIndex("USUA_FK_GRUS");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("USUARIOS");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.BairroModel", b =>
@@ -641,6 +710,35 @@ namespace Ecommerce.Migrations
                         .HasForeignKey("UsuarioModelUSUA_PK_FK_PESS");
                 });
 
+            modelBuilder.Entity("Ecommerce.Models.ProdutoModel", b =>
+                {
+                    b.HasOne("Ecommerce.Models.Produto_CategoriaModel", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("PROD_FK_CATE")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.Produto_CategoriaModel", b =>
+                {
+                    b.HasOne("Ecommerce.Models.ProdutoModel", null)
+                        .WithMany("Categorias")
+                        .HasForeignKey("ProdutoModelPROD_PK_ID");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.Produto_ImagemModel", b =>
+                {
+                    b.HasOne("Ecommerce.Models.ProdutoModel", "Produto")
+                        .WithMany("Produto_Imagems")
+                        .HasForeignKey("PRIM_FK_PROD")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produto");
+                });
+
             modelBuilder.Entity("Ecommerce.Models.TelefoneModel", b =>
                 {
                     b.HasOne("Ecommerce.Models.PessoaModel", "Pessoa")
@@ -699,6 +797,13 @@ namespace Ecommerce.Migrations
                     b.Navigation("Pedidos");
 
                     b.Navigation("Telefones");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.ProdutoModel", b =>
+                {
+                    b.Navigation("Categorias");
+
+                    b.Navigation("Produto_Imagems");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.UsuarioModel", b =>

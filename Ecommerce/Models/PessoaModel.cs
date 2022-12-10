@@ -27,7 +27,7 @@ namespace Ecommerce.Models
         [Display(Name = "Nome Completo")]
         public string PESS_NOME { get; set; }
         [Display(Name = "Imagem")]
-        public byte[] Imagem { get; set; }
+        public byte[] PESS_IMAGEM { get; set; }
         [Display(Name = "Pessoa Tipo")]
         public PessoaTipo PESS_TIPO { get; set; }
         [DataType(DataType.EmailAddress)]

@@ -1,0 +1,60 @@
+﻿@model Ecommerce.Models.ProdutoModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ProdutoModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_DESCRICAO)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_DESCRICAO)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_VALIDADE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_VALIDADE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_VALOR)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_VALOR)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_VOLUME)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_VOLUME)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_QUANTIDADE_ESTOQUE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_QUANTIDADE_ESTOQUE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Categoria.PRCA_DESCRICAO)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_STATUS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_STATUS)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PROD_PK_ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

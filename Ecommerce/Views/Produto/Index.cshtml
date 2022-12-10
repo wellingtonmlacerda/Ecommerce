@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Ecommerce.Models.ProdutoModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PROD_DESCRICAO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROD_VALIDADE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROD_VALOR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROD_VOLUME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROD_QUANTIDADE_ESTOQUE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROD_STATUS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROD_DESCRICAO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROD_VALIDADE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROD_VALOR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROD_VOLUME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROD_QUANTIDADE_ESTOQUE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.PRCA_DESCRICAO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROD_STATUS)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PROD_PK_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PROD_PK_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PROD_PK_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

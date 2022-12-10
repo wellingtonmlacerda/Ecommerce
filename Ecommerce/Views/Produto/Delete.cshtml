@@ -1,0 +1,63 @@
+﻿@model Ecommerce.Models.ProdutoModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProdutoModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_DESCRICAO)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_DESCRICAO)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_VALIDADE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_VALIDADE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_VALOR)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_VALOR)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_VOLUME)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_VOLUME)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_QUANTIDADE_ESTOQUE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_QUANTIDADE_ESTOQUE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Categoria.PRCA_DESCRICAO)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PROD_STATUS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PROD_STATUS)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PROD_PK_ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

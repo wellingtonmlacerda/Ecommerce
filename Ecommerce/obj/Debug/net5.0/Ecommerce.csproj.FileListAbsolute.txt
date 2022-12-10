@@ -61,7 +61,6 @@ C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\bin\Debug\net
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
@@ -162,3 +161,14 @@ C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Ecommerce.csproj.CopyComplete
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Ecommerce.genruntimeconfig.cache
 C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\ref\Ecommerce.dll
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto\Create.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto\Delete.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto\Details.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto\Edit.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto\Index.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto_Categoria\Create.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto_Categoria\Delete.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto_Categoria\Details.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto_Categoria\Edit.cshtml.g.cs
+C:\Users\Wellington\OneDrive\Documentos\GitHub\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Produto_Categoria\Index.cshtml.g.cs

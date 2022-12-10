@@ -1,0 +1,64 @@
+﻿@model Ecommerce.Models.ProdutoModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ProdutoModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PROD_PK_ID" />
+            <div class="form-group">
+                <label asp-for="PROD_DESCRICAO" class="control-label"></label>
+                <input asp-for="PROD_DESCRICAO" class="form-control" />
+                <span asp-validation-for="PROD_DESCRICAO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PROD_VALIDADE" class="control-label"></label>
+                <input asp-for="PROD_VALIDADE" class="form-control" />
+                <span asp-validation-for="PROD_VALIDADE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PROD_VALOR" class="control-label"></label>
+                <input asp-for="PROD_VALOR" class="form-control" />
+                <span asp-validation-for="PROD_VALOR" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PROD_VOLUME" class="control-label"></label>
+                <input asp-for="PROD_VOLUME" class="form-control" />
+                <span asp-validation-for="PROD_VOLUME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PROD_QUANTIDADE_ESTOQUE" class="control-label"></label>
+                <input asp-for="PROD_QUANTIDADE_ESTOQUE" class="form-control" />
+                <span asp-validation-for="PROD_QUANTIDADE_ESTOQUE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PROD_FK_CATE" class="control-label"></label>
+                <select asp-for="PROD_FK_CATE" class="form-control" asp-items="ViewBag.PROD_FK_CATE"></select>
+                <span asp-validation-for="PROD_FK_CATE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PROD_STATUS" class="control-label"></label>
+                <select asp-for="PROD_STATUS" class="form-control"></select>
+                <span asp-validation-for="PROD_STATUS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
